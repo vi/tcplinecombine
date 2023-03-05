@@ -2,8 +2,11 @@
 name = "tcplinecombine"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+repository = "https://github.com/vi/tcplinecombine"
+license = "MIT/Apache-2.0"
+description = "Simple CLI tool to collect incoming lines from TCP clients and compress them (without interleaving bytes within lines)."
+categories = ["network-programming", "command-line-utilities"]
+keywords = ["tcp", "zstd", "fdlinecombine"]
 
 [dependencies]
 anyhow = "1.0.68"
@@ -13,3 +16,13 @@ futures = "0.3.25"
 tokio = { version = "1.23.0", features = ["macros", "net", "rt", "fs", "io-util", "time", "sync"] }
 tokio-util = { version = "0.7.4", features = ["codec"] }
 xflags = "0.3.1"
+
+[profile.release]
+opt-level = "s"
+debug = 1
+rpath = false
+lto = true
+debug-assertions = false
+codegen-units = 1
+incremental = false
+panic = 'abort'
