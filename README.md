@@ -1,6 +1,6 @@
 # tcplinecombine
 
-Privitive logging server that accepts incoming line-based messages and stores them to one compressed file.
+Primitive logging server that accepts incoming line-based messages and stores them to one compressed file.
 
 ```
 host1$ tcplinecombine 0.0.0.0:1234 output.zstd -i 5
